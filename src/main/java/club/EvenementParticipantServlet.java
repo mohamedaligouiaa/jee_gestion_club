@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/ ")
+@WebServlet("/EvenementParticipantServlet")
 public class EvenementParticipantServlet extends HttpServlet {
 
     // Méthode pour afficher le message d'information
