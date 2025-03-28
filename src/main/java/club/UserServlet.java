@@ -24,7 +24,7 @@ public class UserServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     private void ajoutUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String sql = "INSERT INTO users (email, username, password, full_name, gender, city,role) VALUES (?, ?,?,?,?,?);";  
+        String sql = "INSERT INTO users (email, username, password, full_name, gender, city,role) VALUES (?, ?,?,?,?,?,?);";  
         String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
