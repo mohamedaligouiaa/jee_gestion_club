@@ -61,7 +61,7 @@
 				<div class="col-md-6 col-lg-5">
 					<div class="register-box bg-white box-shadow border-radius-10">
 						<div class="wizard-content">
-							<form class="tab-wizard2 wizard-circle wizard" action="UserServlet" method ="post">
+							<form class="tab-wizard2 wizard-circle wizard" action="UserServlet" method ="post" enctype="multipart/form-data">
 								<h5>Basic Account Credentials</h5>
 								<section>
 									<input type="hidden" name="action" value="ajouter"/>
@@ -102,6 +102,31 @@
 												<input type="text" name="full_name" class="form-control">
 											</div>
 										</div>
+										<div class="form-group row">
+										    <label for="image" class="col-sm-4 col-form-label">Télécharger une image</label>
+										    <div class="col-sm-8">
+										        <input type="file" class="form-control" id="image" name="image" accept="image/*" required onchange="previewImage(event)">
+										    </div>
+										</div>
+										<!-- Zone de prévisualisation -->
+										<div class="form-group row mt-2">
+										    <div class="col-sm-8">
+										        <img id="imagePreview" src="#" alt="Aperçu de l'image" style="display: none; max-width: 100%; height: auto; border-radius: 8px;">
+										    </div>
+										</div>
+										
+										<script>
+										    function previewImage(event) {
+										        var reader = new FileReader();
+										        reader.onload = function(){
+										            var output = document.getElementById('imagePreview');
+										            output.src = reader.result;
+										            output.style.display = 'block';
+										        };
+										        reader.readAsDataURL(event.target.files[0]);
+										    }
+										</script>
+
 										<div class="form-group row align-items-center">
 											<label class="col-sm-4 col-form-label">Gender*</label>
 											<div class="col-sm-8">
