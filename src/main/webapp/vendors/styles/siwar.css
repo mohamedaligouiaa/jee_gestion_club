@@ -1,0 +1,19 @@
+@charset "UTF-8";
+  .error {
+            border: 2px solid red !important;
+            animation: shake 0.2s ease-in-out 2;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }

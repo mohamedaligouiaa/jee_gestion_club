@@ -45,9 +45,11 @@ public class ServletEvent extends HttpServlet {
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
-                afficherMessage(response, "Événement ajouté avec succès !");
+                // Rediriger vers la page de confirmation
+                response.sendRedirect("confirmation.jsp?success=true");
             } else {
-                afficherMessage(response, "Erreur lors de l'ajout de l'événement.");
+                // Rediriger vers la page de confirmation avec un message d'erreur
+                response.sendRedirect("confirmation.jsp?success=false");
             }
         }
     }
