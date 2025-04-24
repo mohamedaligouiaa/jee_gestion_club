@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.Connection, java.sql.PreparedStatement, java.sql.ResultSet, java.sql.SQLException, club.DatabaseConnection" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,7 +35,7 @@
         
         .ticket-container {
             width: 100%;
-            max-width: 500px; /* Largeur augmentée */
+            max-width: 500px;
         }
         
         .ticket {
@@ -210,6 +211,35 @@
     </style>
 </head>
 <body>
+    <%
+        String eventId = request.getParameter("eventId");
+        if (eventId == null || eventId.isEmpty()) {
+            response.sendRedirect("events.jsp");
+            return;
+        }
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = DatabaseConnection.getConnection();
+            String query = "SELECT e.id, e.titre, e.description, e.date_event, e.lieu, " +
+                           "e.categorie, e.capacite, e.club_id, e.heure, c.nom as club_nom " +
+                           "FROM club.evenement e " +
+                           "LEFT JOIN club.club c ON e.club_id = c.id " +
+                           "WHERE e.id = ?";
+            
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, eventId);
+            rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                String heureEvent = rs.getString("heure");
+                if(heureEvent != null && heureEvent.length() > 5) {
+                    heureEvent = heureEvent.substring(0, 5);
+                }
+    %>
     <div class="ticket-container">
         <div class="ticket">
             <div class="watermark">TICKET</div>
@@ -223,31 +253,34 @@
                 <div class="ticket-info">
                     <div class="info-row">
                         <span class="info-label">Événement:</span>
-                        <span class="info-value"><%= request.getParameter("eventName") != null ? request.getParameter("eventName") : "Non spécifié" %></span>
+                        <span class="info-value"><%= rs.getString("titre") %></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Club:</span>
-                        <span class="info-value"><%= request.getParameter("clubName") != null ? request.getParameter("clubName") : "Non spécifié" %></span>
+                        <span class="info-value"><%= rs.getString("club_nom") != null ? rs.getString("club_nom") : "Non spécifié" %></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Date:</span>
-                        <span class="info-value"><%= request.getParameter("eventDate") != null ? request.getParameter("eventDate") : "Non spécifié" %></span>
+                        <span class="info-value"><%= rs.getString("date_event") %></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Heure:</span>
-                        <span class="info-value"><%= request.getParameter("eventTime") != null ? request.getParameter("eventTime") : "Non spécifié" %></span>
+                        <span class="info-value"><%= heureEvent != null ? heureEvent : "Non spécifié" %></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Lieu:</span>
-                        <span class="info-value"><%= request.getParameter("eventLocation") != null ? request.getParameter("eventLocation") : "Non spécifié" %></span>
+                        <span class="info-value"><%= rs.getString("lieu") %></span>
                     </div>
-                    
+                    <div class="info-row">
+                        <span class="info-label">Catégorie:</span>
+                        <span class="info-value"><%= rs.getString("categorie") %></span>
+                    </div>
                 </div>
                 
                 <div class="ticket-qrcode">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<%= request.getParameter("eventId") != null ? request.getParameter("eventId") : "0" %>-<%= request.getParameter("userId") != null ? request.getParameter("userId") : "0" %>" 
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<%= rs.getString("id") %>-<%= System.currentTimeMillis() %>" 
                          alt="QR Code">
-                    <div class="ticket-number">N°: <%= request.getParameter("eventId") != null ? request.getParameter("eventId") : "0" %>-<%= System.currentTimeMillis() %></div>
+                    <div class="ticket-number">N°: <%= rs.getString("id") %>-<%= System.currentTimeMillis() %></div>
                 </div>
             </div>
             
@@ -265,5 +298,18 @@
             </div>
         </div>
     </div>
+    <%
+            } else {
+                out.println("<p>Événement non trouvé</p>");
+            }
+        } catch (SQLException e) {
+            out.println("<p>Erreur: " + e.getMessage() + "</p>");
+            e.printStackTrace();
+        } finally {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (conn != null) conn.close();
+        }
+    %>
 </body>
 </html>
