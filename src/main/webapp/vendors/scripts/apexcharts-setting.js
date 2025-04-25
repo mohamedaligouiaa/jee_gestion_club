@@ -23,7 +23,7 @@ var options = {
 	},
 	xaxis: {
 		type: 'datetime',
-		categories: ['1/11/2020', '2/11/2020', '3/11/2020', '4/11/2020', '5/11/2020', '6/11/2020', '7/11/2020', '8/11/2020', '9/11/2020', '10/11/2020', '11/11/2020', '12/11/2020', '1/11/2021', '2/11/2021', '3/11/2021','4/11/2021' ,'5/11/2021' ,'6/11/2021'],
+		categories: ['1/11/2020', '2/11/2020', '3/11/2020', '4/11/2020', '5/11/2020', '6/11/2020', '7/11/2020', '8/11/2020', '9/11/2020', '10/11/2020', '11/11/2020', '12/11/2020', '1/11/2021', '2/11/2021', '3/11/2021', '4/11/2021', '5/11/2021', '6/11/2021'],
 	},
 	title: {
 		text: 'Social Media',
@@ -37,7 +37,7 @@ var options = {
 		type: 'gradient',
 		gradient: {
 			shade: 'dark',
-			gradientToColors: [ '#1b00ff'],
+			gradientToColors: ['#1b00ff'],
 			shadeIntensity: 1,
 			type: 'horizontal',
 			opacityFrom: 1,
@@ -152,7 +152,7 @@ var options3 = {
 	},
 	tooltip: {
 		y: {
-			formatter: function (val) {
+			formatter: function(val) {
 				return "$" + val + "thousands"
 			}
 		}
@@ -260,7 +260,7 @@ var options5 = {
 		}
 	},
 	labels: ['01/01/2020', '02/01/2020', '03/01/2020', '04/01/2020', '05/01/2020', '06/01/2020', '07/01/2020',
-	'08/01/2020', '09/01/2020', '10/01/2020', '11/01/2020'
+		'08/01/2020', '09/01/2020', '10/01/2020', '11/01/2020'
 	],
 	markers: {
 		size: 0
@@ -278,7 +278,7 @@ var options5 = {
 		shared: true,
 		intersect: false,
 		y: {
-			formatter: function (y) {
+			formatter: function(y) {
 				if (typeof y !== "undefined") {
 					return y.toFixed(0) + " points";
 				}
@@ -293,119 +293,119 @@ chart.render();
 
 var options6 = {
 	series: [
-	{
-		name: 'Bob',
-		data: [
 		{
-			x: 'Design',
-			y: [
-			new Date('2020-03-05').getTime(),
-			new Date('2020-03-08').getTime()
+			name: 'Bob',
+			data: [
+				{
+					x: 'Design',
+					y: [
+						new Date('2020-03-05').getTime(),
+						new Date('2020-03-08').getTime()
+					]
+				},
+				{
+					x: 'Code',
+					y: [
+						new Date('2020-03-02').getTime(),
+						new Date('2020-03-05').getTime()
+					]
+				},
+				{
+					x: 'Code',
+					y: [
+						new Date('2020-03-05').getTime(),
+						new Date('2020-03-07').getTime()
+					]
+				},
+				{
+					x: 'Test',
+					y: [
+						new Date('2020-03-03').getTime(),
+						new Date('2020-03-09').getTime()
+					]
+				},
+				{
+					x: 'Test',
+					y: [
+						new Date('2020-03-08').getTime(),
+						new Date('2020-03-11').getTime()
+					]
+				},
+				{
+					x: 'Validation',
+					y: [
+						new Date('2020-03-11').getTime(),
+						new Date('2020-03-16').getTime()
+					]
+				},
+				{
+					x: 'Design',
+					y: [
+						new Date('2020-03-01').getTime(),
+						new Date('2020-03-03').getTime()
+					]
+				}
 			]
 		},
 		{
-			x: 'Code',
-			y: [
-			new Date('2020-03-02').getTime(),
-			new Date('2020-03-05').getTime()
+			name: 'Joe',
+			data: [
+				{
+					x: 'Design',
+					y: [
+						new Date('2020-03-02').getTime(),
+						new Date('2020-03-05').getTime()
+					]
+				},
+				{
+					x: 'Test',
+					y: [
+						new Date('2020-03-06').getTime(),
+						new Date('2020-03-16').getTime()
+					]
+				},
+				{
+					x: 'Code',
+					y: [
+						new Date('2020-03-03').getTime(),
+						new Date('2020-03-07').getTime()
+					]
+				},
+				{
+					x: 'Deployment',
+					y: [
+						new Date('2020-03-20').getTime(),
+						new Date('2020-03-22').getTime()
+					]
+				},
+				{
+					x: 'Design',
+					y: [
+						new Date('2020-03-10').getTime(),
+						new Date('2020-03-16').getTime()
+					]
+				}
 			]
 		},
 		{
-			x: 'Code',
-			y: [
-			new Date('2020-03-05').getTime(),
-			new Date('2020-03-07').getTime()
-			]
-		},
-		{
-			x: 'Test',
-			y: [
-			new Date('2020-03-03').getTime(),
-			new Date('2020-03-09').getTime()
-			]
-		},
-		{
-			x: 'Test',
-			y: [
-			new Date('2020-03-08').getTime(),
-			new Date('2020-03-11').getTime()
-			]
-		},
-		{
-			x: 'Validation',
-			y: [
-			new Date('2020-03-11').getTime(),
-			new Date('2020-03-16').getTime()
-			]
-		},
-		{
-			x: 'Design',
-			y: [
-			new Date('2020-03-01').getTime(),
-			new Date('2020-03-03').getTime()
+			name: 'Dan',
+			data: [
+				{
+					x: 'Code',
+					y: [
+						new Date('2020-03-10').getTime(),
+						new Date('2020-03-17').getTime()
+					]
+				},
+				{
+					x: 'Validation',
+					y: [
+						new Date('2020-03-05').getTime(),
+						new Date('2020-03-09').getTime()
+					]
+				},
 			]
 		}
-		]
-	},
-	{
-		name: 'Joe',
-		data: [
-		{
-			x: 'Design',
-			y: [
-			new Date('2020-03-02').getTime(),
-			new Date('2020-03-05').getTime()
-			]
-		},
-		{
-			x: 'Test',
-			y: [
-			new Date('2020-03-06').getTime(),
-			new Date('2020-03-16').getTime()
-			]
-		},
-		{
-			x: 'Code',
-			y: [
-			new Date('2020-03-03').getTime(),
-			new Date('2020-03-07').getTime()
-			]
-		},
-		{
-			x: 'Deployment',
-			y: [
-			new Date('2020-03-20').getTime(),
-			new Date('2020-03-22').getTime()
-			]
-		},
-		{
-			x: 'Design',
-			y: [
-			new Date('2020-03-10').getTime(),
-			new Date('2020-03-16').getTime()
-			]
-		}
-		]
-	},
-	{
-		name: 'Dan',
-		data: [
-		{
-			x: 'Code',
-			y: [
-			new Date('2020-03-10').getTime(),
-			new Date('2020-03-17').getTime()
-			]
-		},
-		{
-			x: 'Validation',
-			y: [
-			new Date('2020-03-05').getTime(),
-			new Date('2020-03-09').getTime()
-			]
-		},
-		]
-	}
 	],
 	chart: {
 		height: 450,
@@ -569,7 +569,8 @@ var options7 = {
 		}
 	},
 	grid: {
-		show: false,	},
+		show: false,
+	},
 	title: {
 		text: 'CandleStick Chart',
 		align: 'left'
