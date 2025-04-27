@@ -8,20 +8,11 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Downloads/jbcrypt-0.4.jar">
+	<classpathentry kind="lib" path="C:/Users/LENOVO/Downloads/P-IINFO/P-IINFO/P-IINFO 2023/semestre 2/JEE/TecDevJEE/TaskManagementProject/src/main/webapp/WEB-INF/lib/tomcat-servlet-api-10.1.18.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/USER/Downloads/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/USER/Downloads/jakarta.servlet-api-6.1.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/LENOVO/Downloads/P-IINFO/P-IINFO/P-IINFO 2023/semestre 2/JEE/TecDevJEE/TaskManagementProject/src/main/webapp/WEB-INF/lib/mysql-connector-j-8.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
