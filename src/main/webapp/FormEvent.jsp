@@ -11,7 +11,7 @@
     color: white;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 .actions a {

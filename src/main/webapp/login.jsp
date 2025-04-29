@@ -108,7 +108,7 @@
 									</div>
 									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OU</div>
 									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="register.html">Créer un compte</a>
+										<a class="btn btn-outline-primary btn-lg btn-block" href="register.jsp">Créer un compte</a>
 									</div>
 								</div>
 							</div>
