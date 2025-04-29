@@ -80,52 +80,57 @@ public class ClubServlet extends HttpServlet {
     }
 
 
-    private void modifierclub (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	String sql ="UPDATE club SET nom=? , description = ? WHERE id=? ;";
-    	int id = Integer.parseInt(request.getParameter("id"));
-    	String nom = request.getParameter("nom");
-    	String description = request.getParameter("description");
-    	try {
-    		Connection c = DatabaseConnection.getConnection();
-    		PreparedStatement pst = c.prepareStatement(sql);
-    		
-    		pst.setString(1, nom);
-    		pst.setString(2, description);
-    		pst.setInt(3, id);
-    		pst.executeUpdate();
-    	}catch(SQLException e) {
-    		e.printStackTrace();
-    	}
-    	
-    	
+    private void modifierclub(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String sql = "UPDATE club SET nom=?, description=? WHERE id=?;";
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nom = request.getParameter("nom");
+        String description = request.getParameter("description");
+        
+        try (Connection c = DatabaseConnection.getConnection();
+             PreparedStatement pst = c.prepareStatement(sql)) {
+            
+            pst.setString(1, nom);
+            pst.setString(2, description);
+            pst.setInt(3, id);
+            pst.executeUpdate();
+            
+            response.sendRedirect("club.jsp?success=Club modifié avec succès");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.sendRedirect("club.jsp?error=Erreur lors de la modification du club");
+        }
     }
-    private void supprimerclub (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	String sql ="DELETE FROM club WHERE id=? ;";
-    	int id = Integer.parseInt(request.getParameter("id"));
-    	try {
-    		Connection c = DatabaseConnection.getConnection();
-    		PreparedStatement pst = c.prepareStatement(sql);
-    		pst.setInt(1, id);
-    		pst.executeUpdate();
-    	}catch(SQLException e) {
-    		e.printStackTrace();
-    	}
-    	
-    	
+    private void supprimerclub(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String sql = "DELETE FROM club WHERE id=?;";
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        try (Connection c = DatabaseConnection.getConnection();
+             PreparedStatement pst = c.prepareStatement(sql)) {
+            
+            pst.setInt(1, id);
+            pst.executeUpdate();
+            
+            response.sendRedirect("club.jsp?success=Club supprimé avec succès");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.sendRedirect("club.jsp?error=Erreur lors de la suppression du club");
+        }
+    
     }
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		 String action = request.getParameter("action");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
 
-	     if ("supprimer".equals(action)) {
-	    	 supprimerclub(request, response);
-		} 
-			 
-	}
+        if ("supprimer".equals(action)) {
+            supprimerclub(request, response);
+        } else if ("afficherAjout".equals(action)) {
+            // Redirection vers la page ajoutclub.jsp
+            response.sendRedirect("ajoutclub.jsp");
+        }
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
