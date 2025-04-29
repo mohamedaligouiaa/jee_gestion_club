@@ -75,7 +75,7 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public static ArrayList<User> afficherUserss() {
+	public static ArrayList<User> afficherUserss() throws SQLException {
         ArrayList<User> liste = new ArrayList<>();
         Connection c = DatabaseConnection.getConnection(); 
 

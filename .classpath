@@ -8,6 +8,7 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.1">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
@@ -15,9 +16,16 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/USER/Downloads/jakarta.servlet-api-6.1.0 (1).jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Downloads/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/LENOVO/Downloads/P-IINFO/P-IINFO/P-IINFO 2023/semestre 2/JEE/TecDevJEE/TaskManagementProject/src/main/webapp/WEB-INF/lib/tomcat-servlet-api-10.1.18.jar">
+>>>>>>> aa97120c056f8bb5f50537941411f44a32e2711d
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="C:/Users/LENOVO/Downloads/P-IINFO/P-IINFO/P-IINFO 2023/semestre 2/JEE/TecDevJEE/TaskManagementProject/src/main/webapp/WEB-INF/lib/mysql-connector-j-8.3.0.jar"/>
+>>>>>>> aa97120c056f8bb5f50537941411f44a32e2711d
 	<classpathentry kind="output" path="bin"/>
 </classpath>

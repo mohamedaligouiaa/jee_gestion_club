@@ -17,6 +17,7 @@ import java.sql.SQLException;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+
 @MultipartConfig(
     fileSizeThreshold = 1024 * 1024 * 2,
     maxFileSize = 1024 * 1024 * 10,
@@ -158,3 +159,4 @@ public class UserServlet extends HttpServlet {
 
 
 }
+
